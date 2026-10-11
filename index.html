@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Anirudh Live – Coimbatore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <style>
+        :root {
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            --bg: #FFFFFF;
+            --card: #FFFFFF;
+            --ink: #111111;
+            --muted: #4A4A55;
+            --line: #DDDDE3;
+            --field: #F6F6F8;
+            --pink: #FF2E93;
+            --lime: #2FBF71;
+            --ok: #17825D;
+            --warn: #B7791F;
+            --bad: #C62F3D;
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px);
+            height: 100%
+        }
+
+        body {
+            font-family: Outfit, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            margin: 0;
+            min-height: 100%;
+            overflow-x: hidden
+        }
+
+        .display {
+            font-family: Anton, Impact, 'Arial Narrow', sans-serif;
+            letter-spacing: .01em;
+            text-transform: uppercase
+        }
+
+        .field {
+            background: var(--field);
+            border: 1.5px solid var(--line);
+            color: var(--ink)
+        }
+
+        .field:focus {
+            outline: 2px solid var(--pink);
+            outline-offset: 1px;
+            border-color: var(--pink)
+        }
+
+        .field.is-bad {
+            border-color: var(--bad)
+        }
+
+        .field.is-ok {
+            border-color: var(--ok)
+        }
+
+        .err {
+            color: var(--bad);
+            min-height: 1.25rem
+        }
+
+        .cta {
+            background: linear-gradient(90deg, #FF2E93, #FF6B4A);
+            color: #fff;
+            box-shadow: 0 10px 24px -8px rgba(255, 46, 147, .55)
+        }
+
+        .cta:hover {
+            filter: brightness(1.12)
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 2px solid var(--pink);
+            outline-offset: 2px
+        }
+
+        dialog {
+            background: var(--card);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            margin: auto;
+            max-height: 92vh;
+            overflow: auto
+        }
+
+        dialog::backdrop {
+            background: rgba(20, 20, 30, .55);
+            backdrop-filter: blur(4px)
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="relative z-10">
+        <nav class="max-w-6xl mx-auto px-5 py-5 flex items-center justify-between" aria-label="Main">
+            <a href="#" class="display text-2xl">Beat<span style="color:var(--pink)">drop</span> Live</a>
+            <ul class="hidden md:flex items-center gap-8 text-sm font-semibold">
+                <li><a href="#" class="hover:text-[var(--pink)]">Home</a></li>
+                <li><a href="#" class="hover:text-[var(--pink)]">Lineup</a></li>
+                <li><a href="#" class="hover:text-[var(--pink)]">Venue</a></li>
+                <li><a href="#" class="hover:text-[var(--pink)]">Contact</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                <button data-open
+                    class="cta hidden sm:inline-block rounded-full px-5 py-2 text-sm font-bold">Register</button>
+                <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-black/30" aria-label="Open menu"
+                    aria-expanded="false">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <ul id="mobileMenu" class="hidden md:hidden mx-5 mb-2 rounded-2xl p-3 text-sm font-semibold"
+            style="background:var(--card);border:1px solid var(--line)">
+            <li><a class="block px-3 py-2" href="#">Home</a></li>
+            <li><a class="block px-3 py-2" href="#">Lineup</a></li>
+            <li><a class="block px-3 py-2" href="#">Venue</a></li>
+            <li><a class="block px-3 py-2" href="#">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero -->
+    <main class="relative z-10 max-w-6xl mx-auto px-5 pt-12 pb-20 sm:pt-20 min-h-[78vh] flex flex-col justify-center">
+        <p class="inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5 text-sm font-semibold"
+            style="border:1px solid var(--pink);color:var(--ink)"><span class="h-2 w-2 rounded-full"
+                style="background:var(--lime)"></span>Live in Coimbatore</p>
+        <h1 class="display mt-6 text-[4.2rem] sm:text-[7rem] lg:text-[9rem] leading-[.92]">Anirudh<br><span
+                style="color:var(--pink)">Live</span> Concert</h1>
+        <p class="mt-6 text-lg sm:text-xl max-w-lg" style="color:var(--muted)">One night. Wall-to-wall bass, lasers and
+            every chartbuster you can sing along to. Get your free pass before they&rsquo;re gone.</p>
+        <dl class="mt-8 flex flex-wrap gap-x-10 gap-y-4">
+            <div>
+                <dt class="text-xs uppercase tracking-widest" style="color:var(--muted)">Date</dt>
+                <dd class="font-bold">20 Dec 2026 · 6 PM</dd>
+            </div>
+            <div>
+                <dt class="text-xs uppercase tracking-widest" style="color:var(--muted)">City</dt>
+                <dd class="font-bold">Coimbatore</dd>
+            </div>
+            <div>
+                <dt class="text-xs uppercase tracking-widest" style="color:var(--muted)">Venue</dt>
+                <dd class="font-bold">To be announced</dd>
+            </div>
+        </dl>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+            <button data-open class="cta rounded-full px-9 py-4 text-lg font-bold">Register now</button>
+            <span class="text-sm" style="color:var(--muted)">Limited passes · Free entry</span>
+        </div>
+    </main>
+
+    <!-- Registration modal -->
+    <dialog id="dlg" class="w-[calc(100%-2rem)] max-w-md rounded-3xl p-6 sm:p-7" aria-labelledby="dlgTitle">
+        <button id="close" class="absolute right-4 top-4 h-9 w-9 rounded-full text-xl leading-none"
+            style="border:1px solid var(--line)" aria-label="Close">&times;</button>
+        <form id="reg" novalidate class="space-y-4">
+            <div>
+                <h2 id="dlgTitle" class="display text-3xl">Get your pass</h2>
+                <p class="text-sm mt-1" style="color:var(--muted)">Anirudh Live · Coimbatore</p>
+            </div>
+            <div>
+                <label for="name" class="block text-sm font-semibold mb-1.5">Name</label>
+                <input id="name" type="text" autocomplete="name" placeholder="Your full name"
+                    class="field w-full rounded-xl px-4 py-3">
+                <p id="e-name" class="err text-sm mt-1" aria-live="polite"></p>
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-semibold mb-1.5">Email</label>
+                <input id="email" type="email" autocomplete="email" placeholder="you@example.com"
+                    class="field w-full rounded-xl px-4 py-3">
+                <p id="e-email" class="err text-sm mt-1" aria-live="polite"></p>
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-semibold mb-1.5">Password</label>
+                <div class="relative">
+                    <input id="password" type="password" autocomplete="new-password" placeholder="At least 6 characters"
+                        class="field w-full rounded-xl px-4 py-3 pr-16">
+                    <button type="button" id="toggle"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold"
+                        style="color:var(--muted)">Show</button>
+                </div>
+                <p id="e-password" class="err text-sm mt-1" aria-live="polite"></p>
+            </div>
+            <div>
+                <div class="flex items-baseline justify-between">
+                    <label for="msg" class="block text-sm font-semibold mb-1.5">Message <span class="font-normal"
+                            style="color:var(--muted)">(optional)</span></label>
+                    <span class="text-xs" style="color:var(--muted)">200 characters max</span>
+                </div>
+                <textarea id="msg" rows="3" maxlength="200" placeholder="Song requests, questions…"
+                    aria-describedby="count warn" class="field w-full rounded-xl px-4 py-3 resize-none"></textarea>
+                <div class="mt-1.5 flex items-center justify-between text-sm">
+                    <span id="count" aria-live="polite" class="font-semibold">0/200 characters</span>
+                    <span id="remain" style="color:var(--muted)">200 remaining</span>
+                </div>
+                <p id="warn" role="alert" class="text-sm mt-1 min-h-[1.25rem]" style="color:var(--bad)"></p>
+            </div>
+            <button id="submit" type="submit" disabled
+                class="cta w-full rounded-xl py-3.5 font-bold transition disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none">Register
+                for free</button>
+        </form>
+
+        <div id="done" class="hidden text-center py-8" role="status">
+            <div class="mx-auto h-14 w-14 rounded-full grid place-items-center text-2xl text-white"
+                style="background:var(--ok)">✓</div>
+            <h2 id="doneTitle" class="display text-3xl mt-4"></h2>
+            <p id="doneText" class="mt-1 text-sm" style="color:var(--muted)"></p>
+            <button id="again" class="mt-6 text-sm font-semibold underline">Register someone else</button>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
